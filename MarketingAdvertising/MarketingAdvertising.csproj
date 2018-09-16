@@ -206,6 +206,8 @@
     <Content Include="Global.asax" />
     <Content Include="Site.Master" />
     <Content Include="SlotInfo.aspx" />
+    <Content Include="Styles\bootstrap-datetimepicker.css" />
+    <Content Include="Styles\bootstrap-datetimepicker.min.css" />
     <Content Include="Styles\Window.css" />
     <Content Include="ViewSwitcher.ascx" />
     <Content Include="Web.config">

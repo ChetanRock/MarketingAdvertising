@@ -7,9 +7,10 @@
     <title></title>
     <script src="Scripts/jquery-1.10.2.js"></script>
     <script src="Scripts/bootstrap-datetimepicker.min.js"></script>
+    <link href="Styles/bootstrap-datetimepicker.css" rel="stylesheet" />
     <script type="text/javascript">
         $(document).ready(function () {
-            $(".form_datetime").datetimepicker({ format: 'hh:mm' });
+            $(".form_datetime").datetimepicker({ format: 'hh:ii' });
         })
       
 </script>            
@@ -46,7 +47,7 @@
                     <td>Media :
                     </td>
                     <td>
-                       <input size="16" type="text"  readonly class="form_datetime">
+                       <input size="16" type="text"  >
                     </td>
                 </tr>
             </table>

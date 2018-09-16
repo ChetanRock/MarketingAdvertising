@@ -1,0 +1,71 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="MarketingAdvertising" Class="DataBaseDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="WebSettings" ConnectionString="Data Source=CHETAN-PC\SQLEXPRESS;Initial Catalog=MarketingAdvertising;Integrated Security=True" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="MarketingAdvertisingConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.CustomerInfo" Member="CustomerInfos">
+    <Type Name="CustomerInfo">
+      <Column Name="intCustomId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="txtCustomerFirstName" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="txtCustomerLastName" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.DeviceInfo" Member="DeviceInfos">
+    <Type Name="DeviceInfo">
+      <Column Name="intDeviceId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="txtDeviceMacId" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="txtAddressLine1" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="txtAddressLine2" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="txtCity" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="txtState" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="txtCountry" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.LoginInfo" Member="LoginInfos">
+    <Type Name="LoginInfo">
+      <Column Name="intLoginId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="txtEmailId" Type="System.String" DbType="VarChar(200) NOT NULL" CanBeNull="false" />
+      <Column Name="txtPassword" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.SlotInfo" Member="SlotInfos">
+    <Type Name="SlotInfo">
+      <Column Name="intSlotId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="dtDate" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="dtFrom" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="dtTo" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="txtDeviceMacId" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="intCustomerId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="txtAdPath" Type="System.String" DbType="VarChar(500) NOT NULL" CanBeNull="false" />
+      <Association Name="SlotInfo_SlotInfo" Member="SlotInfo2" ThisKey="intSlotId" OtherKey="intSlotId" Type="SlotInfo" Cardinality="One" />
+      <Association Name="SlotInfo_SlotInfo" Member="SlotInfo1" ThisKey="intSlotId" OtherKey="intSlotId" Type="SlotInfo" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Function Name="dbo.spInsertLogin" Method="spInsertLogin">
+    <Parameter Name="Emailid" Parameter="emailid" Type="System.String" DbType="VarChar(200)" />
+    <Parameter Name="Password" Parameter="password" Type="System.String" DbType="VarChar(50)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.spInsertDeviceDetails" Method="spInsertDeviceDetails">
+    <Parameter Name="txtDeviceMacId" Type="System.String" DbType="VarChar(100)" />
+    <Parameter Name="txtAddressLine1" Type="System.String" DbType="VarChar(100)" />
+    <Parameter Name="txtAddressLine2" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="txtCity" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="txtState" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="txtCountry" Type="System.String" DbType="VarChar(50)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.spInsertCustomerDetails" Method="spInsertCustomerDetails">
+    <Parameter Name="txtCustomerFirstName" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="txtCustomerLastName" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="txtCellNumber" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="txtEmailId" Type="System.String" DbType="VarChar(100)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.spInsertSlotInfo" Method="spInsertSlotInfo">
+    <Parameter Name="dtDate" Type="System.DateTime" DbType="Date" />
+    <Parameter Name="dtFrom" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="dtTo" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="txtDeviceMacId" Type="System.String" DbType="VarChar(100)" />
+    <Parameter Name="intCustomerId" Type="System.Int32" DbType="Int" />
+    <Parameter Name="txtAdPath" Type="System.String" DbType="VarChar(500)" />
+    <Return Type="System.Int32" />
+  </Function>
+</Database>

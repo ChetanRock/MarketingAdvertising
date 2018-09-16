@@ -153,6 +153,7 @@
     <Content Include="Account\Register.aspx" />
     <Content Include="Account\RegisterExternalLogin.aspx" />
     <Content Include="Dashboard.aspx" />
+    <Content Include="DBScript\script.sql" />
     <Content Include="Login.aspx" />
     <Content Include="Contact.aspx" />
     <Content Include="Content\bootstrap.css" />

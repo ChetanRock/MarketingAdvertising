@@ -8,7 +8,10 @@
     <script src="Scripts/jquery-1.10.2.js"></script>
     <script src="Scripts/bootstrap-datetimepicker.min.js"></script>
     <script type="text/javascript">
-        $(".form_datetime").datetimepicker({ format: 'hh:mm' });
+        $(document).ready(function () {
+            $(".form_datetime").datetimepicker({ format: 'hh:mm' });
+        })
+      
 </script>            
 </head>
 <body>
